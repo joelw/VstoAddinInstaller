@@ -105,6 +105,9 @@ begin
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;
+#ifexist "custom-next-button-click-vars.pas"
+  #include "..\..\custom-next-button-click-vars.pas"
+#endif
 begin
   Log('NextButtonClick: CurPageID = ' + IntToStr(CurPageID));
   result := True;
@@ -149,6 +152,9 @@ begin
       result := ExecuteNetSetup and ExecuteVstorSetup;
     end;
   end; { not PrerequisitesAreMet }
+#ifexist "custom-next-button-click.pas"
+  #include "..\..\custom-next-button-click.pas"
+#endif  
 end;
 
 {
